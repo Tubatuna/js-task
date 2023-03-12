@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Task2</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(/4907157.jpg);
+            font-family: 'Roboto', sans-serif;
+        }
+
+        .hesap {
+            border: 1px solid rgb(122, 115, 115);
+            text-align: center;
+            padding: 20px;
+            margin-top: 150px;
+            width: 30%;
+            box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.075), 0px 4px 10px 0px rgba(0, 0, 0, 0.05);
+            border-radius: 5px;
+            height: 250px;
+            padding-top: 40px;
+        }
+
+        button{
+            box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.075), 0px 4px 10px 0px rgba(0, 0, 0, 0.05); 
+            padding:10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hesap">
+        <h2>Sayı Artırıp Azaltma Mekanizması</h2>
+        <p id="demo"></p>
+        <button onclick="artir()">Artır</button>
+        <button onclick="azalt()">Azalt</button>
+    </div>
+
+
+
+
+    <script>
+        let number = Math.floor(Math.random() * 100);
+        console.log(number);
+        document.getElementById("demo").innerHTML = number;
+
+        function artir() {
+            number++;
+            document.getElementById("demo").innerHTML = number;
+        }
+
+
+        function azalt() {
+            number--;
+            document.getElementById("demo").innerHTML = number;
+        }
+
+    </script>
+</body>
+
+</html>

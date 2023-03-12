@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <title>Not Hesaplama</title>
+    <style>
+        body{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Roboto', sans-serif;
+          
+        }
+        .tablo{
+            width:800px;
+            
+            border:1px solid black;
+            text-align: center;
+            margin-top: 80px;
+            padding: 10px;
+            box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.075), 0px 4px 10px 0px rgba(0, 0, 0, 0.05); 
+    box-shadow: 0 0 20px 0 rgba(34,33,0.3);
+        }
+        input{
+            text-align: center;
+            margin:15px;
+            padding:10px;
+            box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.075), 0px 4px 10px 0px rgba(0, 0, 0, 0.05); 
+        }
+        button{
+            margin:15px;
+            padding:10px;
+            border: 1px solid gray;
+            box-shadow: 0px 0px 1px 0px rgba(0, 0, 0, 0.15), 0px 1px 2px 0px rgba(0, 0, 0, 0.075), 0px 4px 10px 0px rgba(0, 0, 0, 0.05); 
+        }
+        p{
+            height:50px;
+        }
+    </style>
+</head>
+
+<body>
+  
+   <div class="tablo">  <h1>Not Hesaplama Tablosu</h1> <label for="">Vize Notu Giriniz:</label><br>
+    <input type="number" id="vize" onkeyup="vize()"> <br>
+    <label for="">Final Notu Giriniz:</label><br>
+    <input type="number" id="final" onkeyup="final()"> <br>
+    <label for="">Proje Notu Giriniz:</label><br>
+    <input type="number" id="Proje" onkeyup="Proje()"> <br>
+    <button onclick="temizle()">Verileri Temizle</button>
+     <button onclick="hesapla()">Hesapla</button>
+    
+    <hr>
+    <p id="sonuc"></p>
+    <p id="harfNotu"></p></div>
+
+
+    <script>
+        function vize(){
+                let not1=document.getElementById("vize").value;
+            if(not1>100){
+                alert("Lütfen 0 ile 100 arası sayı girin"); 
+
+                document.getElementById("final").disabled=true;
+                document.getElementById("Proje").disabled=true;}
+            else{
+                document.getElementById("final").disabled=false;
+                document.getElementById("Proje").disabled=false;
+            }}
+
+        function final(){
+                let not2=document.getElementById("final").value;
+            if(not2>100){
+                alert("Lütfen 0 ile 100 arası sayı girin"); 
+                document.getElementById("Proje").disabled=true;}
+            else{
+                document.getElementById("Proje").disabled=false;
+            }}
+        function Proje(){
+            let not3=document.getElementById("Proje").value;
+            if(not3>100){
+                alert("Lütfen 0 ile 100 arası sayı girin"); 
+               }}
+
+        
+        
+
+
+        function hesapla() {
+            
+            let vize = document.getElementById("vize").value;
+            let final = document.getElementById("final").value;
+            let Proje = document.getElementById("Proje").value;
+            
+            let notHesabi = vize * 0.3 + final * 0.5 + Proje * 0.2;
+
+            console.log(notHesabi);
+            document.getElementById("sonuc").style.display="block";
+                document.getElementById("harfNotu").style.display="block";
+            document.getElementById("sonuc").innerHTML = "Notunuz:"+(Math.floor(notHesabi));
+            if (notHesabi >= 85) {
+                document.getElementById("harfNotu").innerHTML = "Harf Notunuz: AA";
+               
+            }
+            else if (notHesabi > 70) {
+                document.getElementById("harfNotu").innerHTML = "Harf Notunuz: BB";
+           
+            } else if (notHesabi > 50) {
+                document.getElementById("harfNotu").innerHTML = "Harf Notunuz: CC";
+         
+            } else if (notHesabi > 40) {
+                document.getElementById("harfNotu").innerHTML = "Harf Notunuz: DD";
+          
+            } else {
+                document.getElementById("harfNotu").innerHTML = "Harf Notunuz: FF";
+              
+            }
+
+        }
+            function temizle(){
+                document.getElementById("vize").value="";
+                document.getElementById("final").value="";
+                document.getElementById("Proje").value="";
+                document.getElementById("sonuc").style.display="none";
+                document.getElementById("harfNotu").style.display="none";
+            }
+
+
+
+    </script>
+</body>
+
+</html>
